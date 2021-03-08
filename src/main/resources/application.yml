@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+  instances:
+    serviceB:
+      baseConfig: default
